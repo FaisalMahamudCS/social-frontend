@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = "https://social-media-backend-2-qjtn.onrender.com";
+const API_BASE_URL = "https://social-media-backend-2-qjtn.onrender.com/api";
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
