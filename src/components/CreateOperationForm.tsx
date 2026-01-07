@@ -56,27 +56,29 @@ const CreateOperationForm: React.FC<CreateOperationFormProps> = ({
   if (!showForm) {
     return (
       <button
-        className="btn btn-secondary"
+        className="mt-2 inline-flex items-center rounded-full border border-slate-700 bg-slate-900 px-3 py-1.5 text-[11px] font-medium text-slate-200 shadow-sm transition hover:border-slate-500 hover:bg-slate-800"
         onClick={() => setShowForm(true)}
-        style={{ marginTop: '10px', fontSize: '12px', padding: '5px 10px' }}
       >
-        Respond
+        Reply with an operation
       </button>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginTop: '10px', padding: '10px', backgroundColor: '#fff', borderRadius: '4px' }}>
-      <div className="form-group" style={{ marginBottom: '10px' }}>
+    <form
+      onSubmit={handleSubmit}
+      className="mt-2 rounded-xl border border-slate-800 bg-slate-900/80 p-3 shadow-sm shadow-slate-950/40"
+    >
+      <div className="flex flex-wrap items-center gap-2">
         <select
           value={operationType}
           onChange={(e) => setOperationType(e.target.value as any)}
-          style={{ width: 'auto', marginRight: '10px', display: 'inline-block' }}
+          className="h-9 rounded-lg border border-slate-700 bg-slate-900 px-2 text-xs text-slate-50 outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500/40"
         >
-          <option value="add">+</option>
-          <option value="subtract">-</option>
-          <option value="multiply">×</option>
-          <option value="divide">÷</option>
+          <option value="add">+ Add</option>
+          <option value="subtract">− Subtract</option>
+          <option value="multiply">× Multiply</option>
+          <option value="divide">÷ Divide</option>
         </select>
         <input
           type="number"
@@ -85,25 +87,32 @@ const CreateOperationForm: React.FC<CreateOperationFormProps> = ({
           onChange={(e) => setRightOperand(e.target.value)}
           placeholder="Number"
           required
-          style={{ width: '100px', display: 'inline-block', marginRight: '10px' }}
+          className="h-9 w-24 rounded-lg border border-slate-700 bg-slate-900 px-2 text-xs text-slate-50 outline-none placeholder:text-slate-500 focus:border-sky-500 focus:ring-1 focus:ring-sky-500/40"
         />
-        <button type="submit" className="btn btn-success" disabled={loading} style={{ fontSize: '12px', padding: '5px 10px' }}>
-          {loading ? '...' : 'Submit'}
+        <button
+          type="submit"
+          className="inline-flex items-center rounded-lg bg-emerald-500 px-3 py-1.5 text-[11px] font-medium text-white shadow-sm shadow-emerald-500/40 transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-70"
+          disabled={loading}
+        >
+          {loading ? 'Posting…' : 'Post reply'}
         </button>
         <button
           type="button"
-          className="btn btn-secondary"
+          className="inline-flex items-center rounded-lg border border-slate-700 bg-slate-900 px-3 py-1.5 text-[11px] font-medium text-slate-200 hover:border-slate-500 hover:bg-slate-800"
           onClick={() => {
             setShowForm(false);
             setError('');
             setRightOperand('');
           }}
-          style={{ fontSize: '12px', padding: '5px 10px', marginLeft: '5px' }}
         >
           Cancel
         </button>
       </div>
-      {error && <div className="error" style={{ fontSize: '12px' }}>{error}</div>}
+      {error && (
+        <div className="mt-2 rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-1.5 text-[11px] text-red-300">
+          {error}
+        </div>
+      )}
     </form>
   );
 };

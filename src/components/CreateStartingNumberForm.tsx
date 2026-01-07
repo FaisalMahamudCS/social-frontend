@@ -34,22 +34,41 @@ const CreateStartingNumberForm: React.FC<CreateStartingNumberFormProps> = ({ onN
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <h3 style={{ marginBottom: '15px' }}>Start a New Calculation Chain</h3>
-      <div className="form-group">
-        <label>Starting Number</label>
+    <form
+      className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-lg shadow-slate-950/40 backdrop-blur"
+      onSubmit={handleSubmit}
+    >
+      <h3 className="text-sm font-semibold text-slate-50">
+        Start a new thread
+      </h3>
+      <p className="mt-1 text-xs text-slate-400">
+        Pick a starting number. Others will reply by adding, subtracting, multiplying, or dividing.
+      </p>
+      <div className="mt-4 space-y-2">
+        <label className="text-xs font-medium text-slate-300">
+          Starting number
+        </label>
         <input
           type="number"
           step="any"
           value={number}
           onChange={(e) => setNumber(e.target.value)}
-          placeholder="Enter a number"
+          placeholder="e.g. 42"
           required
+          className="w-full rounded-xl border border-slate-700 bg-slate-900/60 px-3 py-2.5 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/40"
         />
       </div>
-      {error && <div className="error">{error}</div>}
-      <button type="submit" className="btn btn-success" disabled={loading}>
-        {loading ? 'Creating...' : 'Create Starting Number'}
+      {error && (
+        <div className="mt-2 rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-2 text-xs text-red-300">
+          {error}
+        </div>
+      )}
+      <button
+        type="submit"
+        className="mt-4 inline-flex items-center rounded-xl bg-emerald-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm shadow-emerald-500/40 transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-70"
+        disabled={loading}
+      >
+        {loading ? 'Creating…' : 'Create starting number'}
       </button>
     </form>
   );
