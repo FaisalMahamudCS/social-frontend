@@ -56,7 +56,7 @@ const CreateOperationForm: React.FC<CreateOperationFormProps> = ({
   if (!showForm) {
     return (
       <button
-        className="mt-2 inline-flex items-center rounded-full border border-slate-700 bg-slate-900 px-3 py-1.5 text-[11px] font-medium text-slate-200 shadow-sm transition hover:border-slate-500 hover:bg-slate-800"
+        className="mt-2 inline-flex items-center rounded-full border border-[#E2E8F0] bg-white px-3 py-1.5 text-[11px] font-medium text-[#5B4BFF] shadow-sm transition hover:border-[#5B4BFF] hover:bg-[#EEF2FF]"
         onClick={() => setShowForm(true)}
       >
         Reply with an operation
@@ -67,13 +67,13 @@ const CreateOperationForm: React.FC<CreateOperationFormProps> = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className="mt-2 rounded-xl border border-slate-800 bg-slate-900/80 p-3 shadow-sm shadow-slate-950/40"
+      className="mt-2 rounded-xl border border-[#E2E8F0] bg-white/90 p-3 shadow-sm shadow-[#5B4BFF1A]"
     >
       <div className="flex flex-wrap items-center gap-2">
         <select
           value={operationType}
           onChange={(e) => setOperationType(e.target.value as any)}
-          className="h-9 rounded-lg border border-slate-700 bg-slate-900 px-2 text-xs text-slate-50 outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500/40"
+          className="h-9 rounded-lg border border-[#E2E8F0] bg-white px-2 text-xs text-[#0F172A] outline-none focus:border-[#5B4BFF] focus:ring-1 focus:ring-[#5B4BFF]/50"
         >
           <option value="add">+ Add</option>
           <option value="subtract">− Subtract</option>
@@ -87,18 +87,18 @@ const CreateOperationForm: React.FC<CreateOperationFormProps> = ({
           onChange={(e) => setRightOperand(e.target.value)}
           placeholder="Number"
           required
-          className="h-9 w-24 rounded-lg border border-slate-700 bg-slate-900 px-2 text-xs text-slate-50 outline-none placeholder:text-slate-500 focus:border-sky-500 focus:ring-1 focus:ring-sky-500/40"
+          className="h-9 w-24 rounded-lg border border-[#E2E8F0] bg-white px-2 text-xs text-[#0F172A] outline-none placeholder:text-[#94A3B8] focus:border-[#5B4BFF] focus:ring-1 focus:ring-[#5B4BFF]/50"
         />
         <button
           type="submit"
-          className="inline-flex items-center rounded-lg bg-emerald-500 px-3 py-1.5 text-[11px] font-medium text-white shadow-sm shadow-emerald-500/40 transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-70"
+          className="inline-flex items-center rounded-lg bg-[#5B4BFF] px-3 py-1.5 text-[11px] font-medium text-white shadow-sm shadow-[#5B4BFF55] transition hover:bg-[#4A3DE0] disabled:cursor-not-allowed disabled:opacity-70"
           disabled={loading}
         >
           {loading ? 'Posting…' : 'Post reply'}
         </button>
         <button
           type="button"
-          className="inline-flex items-center rounded-lg border border-slate-700 bg-slate-900 px-3 py-1.5 text-[11px] font-medium text-slate-200 hover:border-slate-500 hover:bg-slate-800"
+          className="inline-flex items-center rounded-lg border border-[#E2E8F0] bg-white px-3 py-1.5 text-[11px] font-medium text-[#0F172A] hover:border-[#5B4BFF] hover:text-[#5B4BFF]"
           onClick={() => {
             setShowForm(false);
             setError('');
@@ -109,7 +109,7 @@ const CreateOperationForm: React.FC<CreateOperationFormProps> = ({
         </button>
       </div>
       {error && (
-        <div className="mt-2 rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-1.5 text-[11px] text-red-300">
+        <div className="mt-2 rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-1.5 text-[11px] text-red-200">
           {error}
         </div>
       )}

@@ -35,17 +35,17 @@ const CreateStartingNumberForm: React.FC<CreateStartingNumberFormProps> = ({ onN
 
   return (
     <form
-      className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-lg shadow-slate-950/40 backdrop-blur"
+      className="rounded-2xl border border-[#E2E8F0] bg-white/90 p-5 shadow-lg shadow-[#5B4BFF1A] backdrop-blur"
       onSubmit={handleSubmit}
     >
-      <h3 className="text-sm font-semibold text-slate-50">
+      <h3 className="text-sm font-semibold text-[#0F172A]">
         Start a new thread
       </h3>
-      <p className="mt-1 text-xs text-slate-400">
+      <p className="mt-1 text-xs text-[#475569]">
         Pick a starting number. Others will reply by adding, subtracting, multiplying, or dividing.
       </p>
       <div className="mt-4 space-y-2">
-        <label className="text-xs font-medium text-slate-300">
+        <label className="text-xs font-medium text-[#0F172A]">
           Starting number
         </label>
         <input
@@ -55,17 +55,17 @@ const CreateStartingNumberForm: React.FC<CreateStartingNumberFormProps> = ({ onN
           onChange={(e) => setNumber(e.target.value)}
           placeholder="e.g. 42"
           required
-          className="w-full rounded-xl border border-slate-700 bg-slate-900/60 px-3 py-2.5 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/40"
+          className="w-full rounded-xl border border-[#E2E8F0] bg-white px-3 py-2.5 text-sm text-[#0F172A] outline-none ring-0 transition placeholder:text-[#94A3B8] focus:border-[#5B4BFF] focus:ring-2 focus:ring-[#5B4BFF]/50"
         />
       </div>
       {error && (
-        <div className="mt-2 rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-2 text-xs text-red-300">
+        <div className="mt-2 rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-2 text-xs text-red-600">
           {error}
         </div>
       )}
       <button
         type="submit"
-        className="mt-4 inline-flex items-center rounded-xl bg-emerald-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm shadow-emerald-500/40 transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-70"
+        className="mt-4 inline-flex items-center rounded-xl bg-[#5B4BFF] px-4 py-2.5 text-sm font-medium text-white shadow-lg shadow-[#5B4BFF55] transition hover:bg-[#4A3DE0] disabled:cursor-not-allowed disabled:opacity-70"
         disabled={loading}
       >
         {loading ? 'Creating…' : 'Create starting number'}

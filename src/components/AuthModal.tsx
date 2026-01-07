@@ -41,26 +41,26 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess, mode 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#0F172A]/20 px-4 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-md rounded-2xl border border-slate-800 bg-slate-900/90 p-6 shadow-2xl shadow-slate-950/60"
+        className="w-full max-w-md rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-2xl shadow-[#5B4BFF1A]"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-4 flex items-center justify-between gap-3">
           <div>
-            <h2 className="text-lg font-semibold text-slate-50">
+            <h2 className="text-lg font-semibold text-[#0F172A]">
               {mode === 'register' ? 'Create your account' : 'Welcome back'}
             </h2>
-            <p className="mt-1 text-xs text-slate-400">
+            <p className="mt-1 text-xs text-[#475569]">
               {mode === 'register'
                 ? 'Pick a unique username and start your first number conversation.'
                 : 'Sign in to continue your calculation threads.'}
             </p>
           </div>
           <button
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full text-slate-400 hover:bg-slate-800 hover:text-slate-100"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full text-[#64748B] hover:bg-[#EEF2FF] hover:text-[#0F172A]"
             onClick={onClose}
           >
             ×
@@ -68,7 +68,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess, mode 
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-slate-300">
+            <label className="text-xs font-medium text-[#0F172A]">
               Username
             </label>
             <input
@@ -77,12 +77,12 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess, mode 
               onChange={(e) => setUsername(e.target.value)}
               required
               autoFocus
-              className="w-full rounded-xl border border-slate-700 bg-slate-900/60 px-3 py-2.5 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/40"
+              className="w-full rounded-xl border border-[#E2E8F0] bg-white px-3 py-2.5 text-sm text-[#0F172A] outline-none ring-0 transition placeholder:text-[#94A3B8] focus:border-[#5B4BFF] focus:ring-2 focus:ring-[#5B4BFF]/40"
               placeholder="e.g. math_wizard"
             />
           </div>
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-slate-300">
+            <label className="text-xs font-medium text-[#0F172A]">
               Password
             </label>
             <input
@@ -91,18 +91,18 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, onSuccess, mode 
               onChange={(e) => setPassword(e.target.value)}
               required
               minLength={6}
-              className="w-full rounded-xl border border-slate-700 bg-slate-900/60 px-3 py-2.5 text-sm text-slate-50 outline-none ring-0 transition placeholder:text-slate-500 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/40"
+              className="w-full rounded-xl border border-[#E2E8F0] bg-white px-3 py-2.5 text-sm text-[#0F172A] outline-none ring-0 transition placeholder:text-[#94A3B8] focus:border-[#5B4BFF] focus:ring-2 focus:ring-[#5B4BFF]/40"
               placeholder="At least 6 characters"
             />
           </div>
           {error && (
-            <div className="rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-2 text-xs text-red-300">
+            <div className="rounded-lg border border-red-500/40 bg-red-500/10 px-3 py-2 text-xs text-red-600">
               {error}
             </div>
           )}
           <button
             type="submit"
-            className="inline-flex w-full items-center justify-center rounded-xl bg-sky-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm shadow-sky-500/40 transition hover:bg-sky-400 disabled:cursor-not-allowed disabled:opacity-70"
+            className="inline-flex w-full items-center justify-center rounded-xl bg-[#5B4BFF] px-4 py-2.5 text-sm font-medium text-white shadow-lg shadow-[#5B4BFF55] transition hover:bg-[#4A3DE0] disabled:cursor-not-allowed disabled:opacity-70"
             disabled={loading}
           >
             {loading ? 'Please wait…' : mode === 'register' ? 'Create account' : 'Sign in'}

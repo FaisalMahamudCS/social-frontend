@@ -3,10 +3,15 @@
 @tailwind utilities;
 
 body {
-  @apply font-sans bg-slate-950 text-slate-50 antialiased;
+  @apply font-sans antialiased;
+  background: #F8FAFC;
+  color: #0F172A;
 }
 
 #root {
-  @apply min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950;
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.14), transparent 28%),
+              radial-gradient(circle at 80% 0%, rgba(91, 75, 255, 0.18), transparent 32%),
+              linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
 }
 
