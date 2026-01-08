@@ -15,6 +15,7 @@ It allows users to view and interact with number-based discussion trees in real 
 - **Responsive Design**: Works on desktop and mobile screens.
 
 ---
+![Dashboard Page](./tree.png)
 
 ## Tech Stack
 
@@ -41,3 +42,4 @@ It allows users to view and interact with number-based discussion trees in real 
 ```bash
 cd social-backend
 cd frontend
+
